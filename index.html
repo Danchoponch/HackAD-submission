@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>WallAD</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body> 
+
+    <section class="navigation gen-container">
+      <button onclick="goToTop()" id="back-to-top" title="Go to top"><i class="fa fa-toggle-up"></i></button>
+      <nav class="nav-container">
+        <div class="logo gen-padding-large"> 
+          <p>WallAD</p>
+        </div>
+      </nav>
+    </section>
+
+    <section class="hero gen-padding-large gen-container">
+      <form class="gen-blue gen-padding-large gen-round-large">
+        <h3 style="text-align: center;"><i class="fa fa-check-square-o" style="font-size: 15px;"></i>Send falcon/campus dirhams quickly</h3>
+        <label for="fname">Amount of dirhams</label>
+        <input type="text" id="name" name="name" placeholder="sum">
+        <label for="fname">NetID of recieving person</label>
+        <input type="text" id="name" name="name" placeholder="NetID">
+        <input class="gen-round-large" type="submit" value="Submit">
+      </form>
+    </section>
+
+    <section class="offers gen-container gen-panel" style="padding: 50px;">
+      <h2 style="text-align: center;">Buy/Sell offers</h2>
+      <div class="slideshow-container">
+
+      <div class="mySlides">
+        <p><q><em>I would like to sell ____ falcon dirhams at a rate of 70%. Email me if interested.</em></q></p>
+        <p class="author"><strong>Net ID: ____</strong></p>
+      </div>
+
+      <div class="mySlides">
+        <p><q><em>Urgently need 2000 falcon dirhams. Please email with offers</em></q></p>
+        <p class="author"><strong>Net ID: ____</strong></p>
+      </div>
+
+      <div class="mySlides">
+        <p><q><em>I will buy ____ falcon dirhams at a rate 75% or lower. Might consider trading a kettle. Email me</em></q></p>
+        <p class="author"><strong>Net ID: ____</strong></p>
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+
+      </div>
+
+      <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+      </div>      
+    </section>
+
+    <section class="gen-container container history content">
+      <h2 style="text-align: center;">Transactions history</h2>
+      <div class="c-card gen-margin-top">
+        <p>13.11.2022</p>
+        <p>X falcon dirhams spent in Y</p>
+      </div>
+      <div class="c-card c-card-right gen-margin-top">
+        <p>12.11.2022</p>
+        <p>X falcon dirhams spent in Y</p>
+      </div>
+      <div class="c-card gen-margin-top">        
+        <p>9.11.2022</p>
+        <p>X falcon dirhams spent in Y</p>
+      </div>
+      <div class="c-card  c-card-right gen-margin-top">
+        <p>8.11.2022</p>
+        <p>X falcon dirhams spent in Y</p>
+      </div>
+      <div class="c-card gen-margin-top">
+        <p>5.11.2022</p>
+        <p>X falcon dirhams spent in Y</p>
+      </div>
+      <div class="c-card  c-card-right gen-margin-top">
+        <p>2.11.2022</p>
+        <p>X falcon dirhams spent in Y</p>
+      </div>
+    </section>
+
+    <section class="gen-panel gen-container content why-us" style="padding: 50px;">
+      <h2 style="text-align: center;">Services</h2>
+      <div class="container boxes">
+        <div class="box gen-round-large">
+          My balance
+        </div>
+        <div class="box gen-round-large">
+          Store
+        </div>
+        <div class="box gen-round-large">
+          Burasr account
+        </div>
+        <div class="box gen-round-large">
+          Loan
+        </div>
+        
+      </div>
+    </section>
+
+    <section class="gen-container footer">
+      <p class="gen-center logo">© 2022 - WallAD - All rights reserved</p>
+    </section>
+
+
+  <script async>
+      const backToTop = document.getElementById("back-to-top");
+
+
+      function goToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+
+      function scroll() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) backToTop.style.display = "block";
+        else backToTop.style.display = "none";
+      }
+
+      window.onscroll = function() {scroll()};
+  </script>
+  <script async>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+      }
+  </script>
+  </body>
+</html>
